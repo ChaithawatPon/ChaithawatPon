@@ -1,0 +1,23 @@
+{
+  "duration": 8,
+  "maxStaticSec": 1.3,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#headline", "bySec": 0.9 },
+    { "kind": "appearsBy", "selector": "#step-observe", "bySec": 1.3 },
+    {
+      "kind": "appearsBy",
+      "selector": "#completion-receipt",
+      "bySec": 6.2
+    },
+    {
+      "kind": "before",
+      "a": "#headline",
+      "b": "#completion-receipt"
+    },
+    { "kind": "staysInFrame", "selector": "#step-observe" },
+    { "kind": "staysInFrame", "selector": "#step-verify" },
+    { "kind": "staysInFrame", "selector": "#step-automate" },
+    { "kind": "staysInFrame", "selector": "#step-document" },
+    { "kind": "keepsMoving", "withinSelector": "#work-ledger" }
+  ]
+}

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: #171a1f;
+        --fg: #f3f0e8;
+        --accent: #ffb000;
+        --muted: #a6a29a;
+        --surface: #22262d;
+        --surface-active: #2d2920;
+        --line: #4e4a42;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: var(--bg);
+      }
+
+      body {
+        color: var(--fg);
+        font-family: "Montserrat", sans-serif;
+      }
+
+      #root,
+      #work-ledger {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+
+      .base-fill {
+        position: absolute;
+        inset: 0;
+        background: var(--bg);
+      }
+
+      .base-glow {
+        position: absolute;
+        left: 1000px;
+        top: 220px;
+        width: 920px;
+        height: 920px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 176, 0, 0.2) 0%,
+          rgba(255, 176, 0, 0.06) 43%,
+          rgba(255, 176, 0, 0) 72%
+        );
+        transform-origin: center;
+      }
+
+      #scene-wrap {
+        position: absolute;
+        inset: 0;
+      }
+
+      .atmosphere {
+        position: absolute;
+        inset: -30px;
+      }
+
+      .work-grid {
+        position: absolute;
+        inset: 0;
+        opacity: 0.18;
+        background-image:
+          linear-gradient(rgba(255, 176, 0, 0.08) 2px, transparent 2px),
+          linear-gradient(90deg, rgba(255, 176, 0, 0.08) 2px, transparent 2px);
+        background-size: 82px 82px;
+        mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(0, 0, 0, 0.72) 30%,
+          rgba(0, 0, 0, 1) 100%
+        );
+      }
+
+      .ghost-number {
+        position: absolute;
+        color: rgba(243, 240, 232, 0.055);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 420px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .ghost-one {
+        left: -26px;
+        top: 590px;
+      }
+
+      .ghost-four {
+        right: 28px;
+        top: -54px;
+      }
+
+      .content {
+        position: absolute;
+        inset: 0;
+        padding: 76px 92px 68px;
+      }
+
+      .masthead {
+        position: relative;
+        width: 1220px;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--accent);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow-mark {
+        display: block;
+        width: 18px;
+        height: 18px;
+        background: var(--accent);
+        transform: rotate(45deg);
+      }
+
+      h1 {
+        width: 1120px;
+        margin: 22px 0 0;
+        font-size: 94px;
+        font-weight: 900;
+        letter-spacing: -0.055em;
+        line-height: 0.96;
+      }
+
+      h1 span {
+        color: var(--accent);
+      }
+
+      .principle {
+        width: 920px;
+        margin: 28px 0 0;
+        color: var(--muted);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 29px;
+        line-height: 1.45;
+      }
+
+      .rail-shell {
+        position: absolute;
+        left: 92px;
+        right: 92px;
+        top: 470px;
+        height: 444px;
+      }
+
+      .rail-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        color: var(--muted);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 21px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .rail-meta strong {
+        color: var(--fg);
+        font-weight: 700;
+      }
+
+      .progress-track {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        margin-top: 22px;
+        background: var(--line);
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+
+      .step-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+        margin-top: 30px;
+      }
+
+      .step-card {
+        position: relative;
+        height: 342px;
+        padding: 30px 28px 24px;
+        overflow: hidden;
+        border: 2px solid var(--line);
+        border-radius: 28px;
+        background: var(--surface);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+        transform-origin: 50% 70%;
+      }
+
+      .card-halo {
+        position: absolute;
+        left: -90px;
+        top: -120px;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 176, 0, 0.38) 0%,
+          rgba(255, 176, 0, 0) 70%
+        );
+        opacity: 0;
+      }
+
+      .card-topline {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 2;
+      }
+
+      .step-number,
+      .step-state,
+      .step-output {
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+      }
+
+      .step-number {
+        color: var(--accent);
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .step-state {
+        color: var(--muted);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .step-card h2 {
+        position: relative;
+        z-index: 2;
+        margin: 32px 0 0;
+        font-size: 36px;
+        font-weight: 900;
+        letter-spacing: -0.035em;
+      }
+
+      .step-card p {
+        position: relative;
+        z-index: 2;
+        min-height: 78px;
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1.3;
+      }
+
+      .step-output {
+        position: absolute;
+        left: 28px;
+        right: 28px;
+        bottom: 22px;
+        z-index: 2;
+        padding-top: 14px;
+        border-top: 2px solid var(--line);
+        color: var(--fg);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.045em;
+      }
+
+      .completion-receipt {
+        position: absolute;
+        right: 92px;
+        bottom: 54px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        min-width: 610px;
+        padding: 20px 28px;
+        border: 2px solid var(--accent);
+        border-radius: 18px;
+        background: var(--bg);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+      }
+
+      .receipt-halo {
+        position: absolute;
+        left: -110px;
+        top: -130px;
+        width: 360px;
+        height: 360px;
+        z-index: 0;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 176, 0, 0.3) 0%,
+          rgba(255, 176, 0, 0) 72%
+        );
+        opacity: 0;
+      }
+
+      .receipt-check {
+        position: relative;
+        display: grid;
+        width: 52px;
+        height: 52px;
+        z-index: 2;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--bg);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .receipt-copy {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        z-index: 2;
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+      }
+
+      .receipt-copy span {
+        color: var(--muted);
+        font-size: 18px;
+        letter-spacing: 0.08em;
+      }
+
+      .receipt-copy strong {
+        color: var(--fg);
+        font-size: 26px;
+        letter-spacing: 0.025em;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-gxr6" id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+      <main data-hf-id="hf-21kc" id="work-ledger" class="clip" data-start="0" data-duration="8" data-track-index="1">
+        <div data-hf-id="hf-c6ij" class="base-fill"></div>
+        <div data-hf-id="hf-c9d0" id="scene-wrap">
+          <div data-hf-id="hf-fnuq" class="base-glow" data-layout-ignore=""></div>
+          <div data-hf-id="hf-tb8h" class="atmosphere" data-layout-ignore="">
+            <div data-hf-id="hf-l7f4" class="work-grid"></div>
+            <div data-hf-id="hf-06tk" class="ghost-number ghost-one">01</div>
+            <div data-hf-id="hf-1ha9" class="ghost-number ghost-four">04</div>
+          </div>
+
+          <div data-hf-id="hf-nwks" class="content" id="content">
+          <header data-hf-id="hf-vcxt" class="masthead">
+            <div data-hf-id="hf-t42m" class="eyebrow" id="eyebrow">
+              <span data-hf-id="hf-bj1c" class="eyebrow-mark"></span>
+              How I work
+            </div>
+            <h1 data-hf-id="hf-x7pt" id="headline">Small tools. <span data-hf-id="hf-6cw6">Clear proof.</span></h1>
+            <p data-hf-id="hf-2b5q" class="principle" id="principle">
+              Start with a real repeated task. Build the smallest useful
+              system. Leave a trail someone else can verify.
+            </p>
+          </header>
+
+          <section data-hf-id="hf-4e39" class="rail-shell" aria-label="Four-step working method">
+            <div data-hf-id="hf-u92a" class="rail-meta" id="rail-meta">
+              <span data-hf-id="hf-0rkn">Input: repeated friction</span>
+              <strong data-hf-id="hf-nunh">Method / 04 checkpoints</strong>
+            </div>
+            <div data-hf-id="hf-lxwj" class="progress-track">
+              <span data-hf-id="hf-qyel" class="progress-fill" id="progress-fill"></span>
+            </div>
+
+            <div data-hf-id="hf-g7zf" class="step-grid">
+              <article data-hf-id="hf-zbmd" class="step-card" id="step-observe">
+                <div data-hf-id="hf-z1kx" class="card-halo" data-layout-allow-overflow></div>
+                <div data-hf-id="hf-0xda" class="card-topline">
+                  <span data-hf-id="hf-5u9k" class="step-number">01</span>
+                  <span data-hf-id="hf-5mgh" class="step-state">Observe</span>
+                </div>
+                <h2 data-hf-id="hf-rxea">Find the repeat</h2>
+                <p data-hf-id="hf-4jkg">Find work that genuinely keeps happening.</p>
+                <div data-hf-id="hf-yap3" class="step-output">out / real friction</div>
+              </article>
+
+              <article data-hf-id="hf-5z2c" class="step-card" id="step-verify">
+                <div data-hf-id="hf-c6ad" class="card-halo" data-layout-allow-overflow></div>
+                <div data-hf-id="hf-kd82" class="card-topline">
+                  <span data-hf-id="hf-4nch" class="step-number">02</span>
+                  <span data-hf-id="hf-24vu" class="step-state">Verify</span>
+                </div>
+                <h2 data-hf-id="hf-axdt">Check the facts</h2>
+                <p data-hf-id="hf-rurr">Trace claims and inputs to evidence.</p>
+                <div data-hf-id="hf-enq3" class="step-output">out / trusted inputs</div>
+              </article>
+
+              <article data-hf-id="hf-0055" class="step-card" id="step-automate">
+                <div data-hf-id="hf-dd7g" class="card-halo" data-layout-allow-overflow></div>
+                <div data-hf-id="hf-krj3" class="card-topline">
+                  <span data-hf-id="hf-51ni" class="step-number">03</span>
+                  <span data-hf-id="hf-nwoh" class="step-state">Automate</span>
+                </div>
+                <h2 data-hf-id="hf-cyw1">Build the core</h2>
+                <p data-hf-id="hf-3fkk">Make the useful core repeatable.</p>
+                <div data-hf-id="hf-a2rc" class="step-output">out / practical tool</div>
+              </article>
+
+              <article data-hf-id="hf-rww4" class="step-card" id="step-document">
+                <div data-hf-id="hf-cywf" class="card-halo" data-layout-allow-overflow></div>
+                <div data-hf-id="hf-l5u4" class="card-topline">
+                  <span data-hf-id="hf-3uqf" class="step-number">04</span>
+                  <span data-hf-id="hf-u442" class="step-state">Document</span>
+                </div>
+                <h2 data-hf-id="hf-7o2h">Share the runbook</h2>
+                <p data-hf-id="hf-1vfz">Make the next run clear to others.</p>
+                <div data-hf-id="hf-6x9u" class="step-output">out / clean handoff</div>
+              </article>
+            </div>
+
+          </section>
+
+          <aside data-hf-id="hf-rex1" class="completion-receipt" id="completion-receipt">
+            <span data-hf-id="hf-10on" class="receipt-halo" id="receipt-halo" data-layout-allow-overflow></span>
+            <span data-hf-id="hf-9s0t" class="receipt-check">✓</span>
+            <span data-hf-id="hf-62w3" class="receipt-copy">
+              <span data-hf-id="hf-x1pl">Result / small useful system</span>
+              <strong data-hf-id="hf-wenx">Runnable by someone else</strong>
+            </span>
+          </aside>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        ".base-glow",
+        { opacity: 0.12, scale: 0.9 },
+        { opacity: 0.22, scale: 1.03, duration: 4, ease: "sine.inOut" },
+        0,
+      );
+      tl.to(
+        ".base-glow",
+        { opacity: 0.12, scale: 0.9, duration: 4, ease: "sine.inOut" },
+        4,
+      );
+      tl.fromTo(
+        ".atmosphere",
+        { x: -12, y: 4 },
+        { x: 12, y: -4, duration: 4, ease: "sine.inOut" },
+        0,
+      );
+      tl.to(
+        ".atmosphere",
+        { x: -12, y: 4, duration: 4, ease: "sine.inOut" },
+        4,
+      );
+
+      tl.fromTo(
+        "#eyebrow",
+        { opacity: 0, x: -36 },
+        { opacity: 1, x: 0, duration: 0.48, ease: "power3.out" },
+        0.12,
+      );
+      tl.fromTo(
+        "#headline",
+        { opacity: 0, y: 30, scale: 0.98 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.58,
+          ease: "power3.out",
+        },
+        0.22,
+      );
+      tl.fromTo(
+        "#principle",
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.52, ease: "power2.out" },
+        0.38,
+      );
+      tl.fromTo(
+        "#rail-meta",
+        { opacity: 0, x: 34 },
+        { opacity: 1, x: 0, duration: 0.44, ease: "power2.out" },
+        0.48,
+      );
+
+      gsap.utils.toArray(".step-card").forEach((card, index) => {
+        tl.fromTo(
+          card,
+          { opacity: 0, scale: 0.92, y: 34 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.54,
+            ease: "power3.out",
+          },
+          0.62 + index * 0.11,
+        );
+      });
+
+      tl.to(
+        "#progress-fill",
+        { scaleX: 1, duration: 4.45, ease: "none" },
+        1.28,
+      );
+
+      const steps = [
+        { id: "#step-observe", at: 1.42 },
+        { id: "#step-verify", at: 2.46 },
+        { id: "#step-automate", at: 3.5 },
+        { id: "#step-document", at: 4.54 },
+      ];
+
+      steps.forEach(({ id, at }) => {
+        tl.to(
+          id,
+          {
+            backgroundColor: "#2d2920",
+            y: -18,
+            scale: 1.025,
+            duration: 0.28,
+            ease: "power2.out",
+          },
+          at,
+        );
+        tl.fromTo(
+          `${id} .card-halo`,
+          { opacity: 0, scale: 0.82 },
+          {
+            opacity: 0.3,
+            scale: 1,
+            duration: 0.38,
+            ease: "power2.out",
+          },
+          at,
+        );
+        tl.to(
+          `${id} .step-state`,
+          { color: "#ffb000", duration: 0.24, ease: "power1.out" },
+          at,
+        );
+        tl.to(
+          id,
+          {
+            backgroundColor: "#22262d",
+            y: 0,
+            scale: 1,
+            duration: 0.34,
+            ease: "power2.inOut",
+          },
+          at + 0.68,
+        );
+        tl.to(
+          `${id} .card-halo`,
+          { opacity: 0, duration: 0.28, ease: "power1.in" },
+          at + 0.68,
+        );
+        tl.to(
+          `${id} .step-state`,
+          { color: "#a6a29a", duration: 0.24, ease: "power1.in" },
+          at + 0.68,
+        );
+      });
+
+      tl.fromTo(
+        "#completion-receipt",
+        { opacity: 0, scale: 0.9, y: 32 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.58,
+          ease: "power3.out",
+        },
+        5.48,
+      );
+      tl.fromTo(
+        "#receipt-halo",
+        { opacity: 0, scale: 0.82 },
+        { opacity: 0.28, scale: 1, duration: 0.72, ease: "power2.out" },
+        5.42,
+      );
+
+      tl.fromTo(
+        "#scene-wrap",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.34, ease: "power2.out" },
+        0,
+      );
+      tl.to(
+        "#scene-wrap",
+        { opacity: 0, duration: 0.62, ease: "power2.in" },
+        7.18,
+      );
+
+      window.__timelines.main = tl;
+    </script>
+  </body>
+</html>
