@@ -19,21 +19,20 @@
 ## 🛠️ Featured Open-Source Repositories
 
 ### 🧰 [Agent Action Skills](https://github.com/iampon-p/agent-action-skills)
-> **A curated, public-safe library of 14 portable AI agent workflows.**
+> **A curated, public-safe library of 14 portable AI agent workflows across `dev/`, `hustle/`, and `studio/`.**
 
 - **Architecture:** Self-contained, text-only skill packages headed by standardized `SKILL.md` specifications — zero runtime dependencies, zero binary bloat.
-- **Portability:** Installs seamlessly into **Claude Code**, **Google Antigravity**, and **Codex** CLI environments.
-- **Key Workflows:** Includes `/fixbill` (PDF correction), `job-hunter` (evidence-backed application engine), `professional-presence` (privacy-safe profile ops), `security-check` (zero-token secret scanner), and `video-doc-guide` (walkthrough generator).
+- **Portability:** Installs seamlessly into **Google Antigravity**, **Claude Code**, and **Codex** CLI environments.
+- **Categorized Workflows:** Includes `dev/security-check` (zero-token scanner), `dev/diagnose` (repro loop), `hustle/job-hunter` (evidence-backed application engine), `hustle/professional-presence` (profile ops), `studio/fixbill` (Thai PDF invoice fixer), and `studio/video-doc-guide` (walkthrough generator).
 - **Validation:** Enforced by automated deterministic validation scripts (`validate-skills.py`) in CI.
 
 ---
 
-### 📄 [Fixbill-CLI](https://github.com/iampon-p/fixbill-cli)
-> **High-precision TypeScript CLI engine for Thai & English PDF invoice and receipt correction.**
+### 🤖 [Arm Robot Simulation](https://github.com/iampon-p/arm-robot-simulation)
+> **3D-printed robot arm simulation and vision-guided control system.**
 
-- **Engine:** Built with `pdf-lib` and `fontkit` for exact typography matching and canvas layout recalculations.
-- **Reliability:** 80+ commits, comprehensive unit test suite, and clean CLI documentation.
-- **Real-World Impact:** Replaced manual invoice layout editing with an automated single-command CLI.
+- **Computer Vision & Control:** Real-time face tracking and inverse kinematics pipeline.
+- **Simulation:** Interactive 3D arm movement and trajectory visualization.
 
 ---
 
