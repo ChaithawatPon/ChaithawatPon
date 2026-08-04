@@ -18,7 +18,7 @@
 
 ## 🛠️ Featured Open-Source Repositories
 
-### 🧰 [Agent Action Skills](https://github.com/iampon-p/agent-action-skills)
+### 🧰 [Agent Action Skills](https://github.com/ChaithawatPon/agent-action-skills)
 > **A curated, public-safe library of 14 portable AI agent workflows across `dev/`, `hustle/`, and `studio/`.**
 
 - **Architecture:** Self-contained, text-only skill packages headed by standardized `SKILL.md` specifications — zero runtime dependencies, zero binary bloat.
@@ -28,7 +28,7 @@
 
 ---
 
-### 🤖 [Arm Robot Simulation](https://github.com/iampon-p/arm-robot-simulation)
+### 🤖 [Arm Robot Simulation](https://github.com/ChaithawatPon/arm-robot-simulation)
 > **3D-printed robot arm simulation and vision-guided control system.**
 
 - **Computer Vision & Control:** Real-time face tracking and inverse kinematics pipeline.
@@ -68,5 +68,5 @@
 ## 📫 Connect with Me
 
 - **LinkedIn:** [github.com/ChaithawatPon](https://github.com/ChaithawatPon)
-- **GitHub:** [github.com/iampon-p](https://github.com/iampon-p)
+- **GitHub:** [github.com/ChaithawatPon](https://github.com/ChaithawatPon)
 - **Location:** Remote (Native Thai · Professional Working English)
