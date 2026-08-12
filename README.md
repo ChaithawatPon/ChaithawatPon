@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)](https://playwright.dev/)
-[![LLM Workflows](https://img.shields.io/badge/AI-Agent%20Workflows-FF6F00?style=flat-square&logo=openai&logoColor=white)](#-agent-action-skills)
+[![LLM Workflows](https://img.shields.io/badge/AI-Agent%20Workflows-FF6F00?style=flat-square&logo=openai&logoColor=white)](#-agent-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-informational.svg?style=flat-square)](LICENSE)
 
 *Available for remote **part-time or contract work** in AI automation, applied AI, internal tooling, and developer workflows alongside my university studies.*
@@ -18,13 +18,18 @@
 
 ## 🛠️ Featured Open-Source Repositories
 
-### 🧰 [Agent Action Skills](https://github.com/ChaithawatPon/agent-action-skills)
-> **A curated, public-safe library of 14 portable AI agent workflows across `dev/`, `hustle/`, and `studio/`.**
+### 🧰 Agent Skills — five focused, installable tools
+> **Each ships as its own MIT-licensed repository with a tagged `v1.0.0` release.**
 
-- **Architecture:** Self-contained, text-only skill packages headed by standardized `SKILL.md` specifications — zero runtime dependencies, zero binary bloat.
-- **Portability:** Installs seamlessly into **Google Antigravity**, **Claude Code**, and **Codex** CLI environments.
-- **Categorized Workflows:** Includes `dev/security-check` (zero-token scanner), `dev/diagnose` (repro loop), `hustle/job-hunter` (evidence-backed application engine), `hustle/professional-presence` (profile ops), `studio/fixbill` (Thai PDF invoice fixer), and `studio/video-doc-guide` (walkthrough generator).
-- **Validation:** Enforced by automated deterministic validation scripts (`validate-skills.py`) in CI.
+- **[edit-video](https://github.com/ChaithawatPon/edit-video)** — local ffmpeg editing workflow for short vertical video: cuts, transitions, captions, render.
+- **[fixbill](https://github.com/ChaithawatPon/fixbill)** — corrects addresses, dates, and document numbers on Thai PDF invoices and receipts.
+- **[sumup](https://github.com/ChaithawatPon/sumup)** — turns a working session into a structured summary and handoff.
+- **[today-obsidian](https://github.com/ChaithawatPon/today-obsidian)** — builds the day's plan by carrying forward unfinished work.
+- **[social-update](https://github.com/ChaithawatPon/social-update)** — professional-presence workflow across profiles, job search, and public content.
+
+- **Architecture:** Self-contained packages headed by a standardized `SKILL.md` — no runtime dependencies.
+- **Portability:** Installs into **Claude Code**, **Codex**, and **Google Antigravity**.
+- **Validation:** Every repository carries a deterministic validator run in CI.
 
 ---
 
