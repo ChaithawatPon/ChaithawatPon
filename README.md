@@ -18,11 +18,10 @@
 
 ## 🛠️ Featured Open-Source Repositories
 
-### 🧰 Agent Skills — five focused, installable tools
+### 🧰 Agent Skills — four focused, installable tools
 > **Each ships as its own MIT-licensed repository with a tagged `v1.0.0` release.**
 
 - **[edit-video](https://github.com/ChaithawatPon/edit-video)** — local ffmpeg editing workflow for short vertical video: cuts, transitions, captions, render.
-- **[fixbill](https://github.com/ChaithawatPon/fixbill)** — corrects addresses, dates, and document numbers on Thai PDF invoices and receipts.
 - **[sumup](https://github.com/ChaithawatPon/sumup)** — turns a working session into a structured summary and handoff.
 - **[today-obsidian](https://github.com/ChaithawatPon/today-obsidian)** — builds the day's plan by carrying forward unfinished work.
 - **[social-update](https://github.com/ChaithawatPon/social-update)** — professional-presence workflow across profiles, job search, and public content.
