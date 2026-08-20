@@ -31,6 +31,13 @@
 - **Portability:** Installs into **Claude Code**, **Codex**, and **Google Antigravity**.
 - **Validation:** Every repository carries a deterministic validator run in CI.
 
+### Recent workflow design
+
+- **Mac Health** — one entry point for local security checks and storage maintenance, with safe ordering for combined health reviews.
+- **Daily Intelligence** — one digest that combines Thai public-affairs monitoring with investment-market updates while keeping automated collection separate from human judgment.
+
+Both workflows are designed for consistent use across Claude Code, Codex, and Google Antigravity.
+
 ---
 
 ### 🤖 [Arm Robot Simulation](https://github.com/ChaithawatPon/arm-robot-simulation)
