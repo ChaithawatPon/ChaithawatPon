@@ -2,9 +2,19 @@
 
 Open-source, privacy-reviewed workflows for practical agent-assisted work.
 
+## Catalog
+
+Install the public skill set from one repository:
+
+```bash
+npx skills add ChaithawatPon/skills
+```
+
+Source: [ChaithawatPon/skills](https://github.com/ChaithawatPon/skills)
+
 ## Skill collection
 
-Each skill remains in its own source repository so it can be installed,
+Each skill also remains in its own source repository so it can be installed,
 versioned, tested, and released independently.
 
 | Skill | Outcome |
