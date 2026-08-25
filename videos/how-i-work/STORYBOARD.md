@@ -1,7 +1,7 @@
 ---
 format: 1920x1080
 duration: 8s
-message: "Pon turns a repeated problem into a small, verifiable system another person can run"
+message: "A repeated problem becomes a small, verifiable system another person can run"
 arc: Repeated task → verified inputs → useful automation → runnable handoff
 audience: recruiters and collaborators
 mode: autonomous

@@ -18,7 +18,7 @@ small runnable system.
 ## Composition
 
 - Focal element: a four-card work rail occupying the lower two-thirds.
-- First anchor: `HOW I WORK` and Pon's one-line principle in the upper-left.
+- First anchor: `HOW I WORK` and the one-line principle in the upper-left.
 - Second anchor: a compact `RUNNABLE BY SOMEONE ELSE` receipt in the
   lower-right.
 - Supporting detail: monospace step numbers, input/output metadata, a progress

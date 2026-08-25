@@ -1,83 +1,42 @@
-<div align="center">
+# Agent Skills and Automation Portfolio
 
-# Hi, I'm Pon (Chaithawat) 👋
+Open-source, privacy-reviewed workflows for practical agent-assisted work.
 
-**Building autonomous AI agent skills, local-first CLI engines, and practical workflow automations.**
+## Skill collection
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)](https://playwright.dev/)
-[![LLM Workflows](https://img.shields.io/badge/AI-Agent%20Workflows-FF6F00?style=flat-square&logo=openai&logoColor=white)](#-agent-skills)
-[![License: MIT](https://img.shields.io/badge/License-MIT-informational.svg?style=flat-square)](LICENSE)
+Each skill remains in its own source repository so it can be installed,
+versioned, tested, and released independently.
 
-*Available for remote **part-time or contract work** in AI automation, applied AI, internal tooling, and developer workflows alongside my university studies.*
+| Skill | Outcome |
+|---|---|
+| [edit-video](https://github.com/ChaithawatPon/edit-video) | Turns user-provided clips into a reviewed cut plan, preview, captions, and final render. |
+| [sell-to-facebook-marketplace](https://github.com/ChaithawatPon/sell-to-facebook-marketplace) | Prepares Marketplace listings and seller workflows with explicit approval before public actions. |
+| [social-update](https://github.com/ChaithawatPon/social-update) | Supports professional profiles, portfolio content, job research, and approval-gated outreach. |
+| [sumup](https://github.com/ChaithawatPon/sumup) | Converts a completed work session into a durable summary and continuation handoff. |
+| [today-obsidian](https://github.com/ChaithawatPon/today-obsidian) | Builds an idempotent daily cockpit from unfinished tasks and verified work evidence. |
 
-</div>
+## Collection contract
 
----
+Every listed skill must provide:
 
-## 🛠️ Featured Open-Source Repositories
+- a valid `SKILL.md` and complete installation instructions;
+- declared requirements, configuration, usage, and troubleshooting guidance;
+- synthetic examples and fixtures instead of personal or customer data;
+- deterministic validation and meaningful tests where runtime behavior exists;
+- explicit privacy and approval boundaries;
+- an independent license and release history.
 
-### 🧰 Agent Skills — four focused, installable tools
-> **Each ships as its own MIT-licensed repository with a tagged `v1.0.0` release.**
+## Privacy boundary
 
-- **[edit-video](https://github.com/ChaithawatPon/edit-video)** — local ffmpeg editing workflow for short vertical video: cuts, transitions, captions, render.
-- **[sumup](https://github.com/ChaithawatPon/sumup)** — turns a working session into a structured summary and handoff.
-- **[today-obsidian](https://github.com/ChaithawatPon/today-obsidian)** — builds the day's plan by carrying forward unfinished work.
-- **[social-update](https://github.com/ChaithawatPon/social-update)** — professional-presence workflow across profiles, job search, and public content.
+The collection links only to public-safe source repositories. It does not copy
+skills, browser state, credentials, local paths, personal profiles, private
+messages, screenshots, customer or employer content, or runtime output.
 
-- **Architecture:** Self-contained packages headed by a standardized `SKILL.md` — no runtime dependencies.
-- **Portability:** Installs into **Claude Code**, **Codex**, and **Google Antigravity**.
-- **Validation:** Every repository carries a deterministic validator run in CI.
+Before a release, each repository is checked from a clean clone for structure,
+dependencies, tests, secrets, personal data in Latin and Thai text, external
+symlinks, and full Git history.
 
-### Recent workflow design
+## Other public engineering work
 
-- **Mac Health** — one entry point for local security checks and storage maintenance, with safe ordering for combined health reviews.
-- **Daily Intelligence** — one digest that combines Thai public-affairs monitoring with investment-market updates while keeping automated collection separate from human judgment.
-
-Both workflows are designed for consistent use across Claude Code, Codex, and Google Antigravity.
-
----
-
-### 🤖 [Arm Robot Simulation](https://github.com/ChaithawatPon/arm-robot-simulation)
-> **3D-printed robot arm simulation and vision-guided control system.**
-
-- **Computer Vision & Control:** Real-time face tracking and inverse kinematics pipeline.
-- **Simulation:** Interactive 3D arm movement and trajectory visualization.
-
----
-
-### ⚡ Fintech AI & Internal Automation (Bangkok Internship)
-> **Practical internal tools built during a 3-month AI & Automation engineering internship.**
-
-- **PDF Document Engine:** Automated document parsing and billing correction pipelines.
-- **Competitor Intelligence Monitor (`/spy`):** Browser-driven monitoring bot that scans competitor updates and formats Slack alerts without API keys.
-- **Video-to-Docs Pipeline:** Automated converter that turns screen recordings into step-by-step documentation with privacy markers.
-- **Outcome:** The engineering team invited me to return part-time following the internship.
-
----
-
-## 📐 Engineering & Architecture Principles
-
-1. **Local-First & Deterministic:** Build fast, reliable tools that minimize fragile API overhead.
-2. **Standardized Contracts:** Use explicit, human-readable specifications (`SKILL.md`, structured manifests) so tools are easily maintained by agents and developers alike.
-3. **Privacy & PDPA by Design:** Automated regex scanning and privacy redaction before any code or documentation release.
-4. **Value-Driven Automation:** Measure success by cutting manual daily tasks from minutes down to seconds.
-
----
-
-## 🧰 Tech Stack
-
-- **Languages:** TypeScript, JavaScript (Node.js/Bun), Python, Bash
-- **Automation & Testing:** Playwright, Chrome DevTools Protocol (CDP), Jest
-- **AI & Agent Systems:** Google Antigravity SDK, Claude Code, Gemini API, RAG Pipelines
-- **Backend & Cloud:** Firebase (Auth, Firestore, App Hosting), PostgreSQL, REST APIs
-- **Integrations:** Slack API, Telegram Bot API, GitHub Actions CI/CD
-
----
-
-## 📫 Connect with Me
-
-- **LinkedIn:** [github.com/ChaithawatPon](https://github.com/ChaithawatPon)
-- **GitHub:** [github.com/ChaithawatPon](https://github.com/ChaithawatPon)
-- **Location:** Remote (Native Thai · Professional Working English)
+- [arm-robot-simulation](https://github.com/ChaithawatPon/arm-robot-simulation) —
+  a vision-guided robot-arm simulation and control project.
