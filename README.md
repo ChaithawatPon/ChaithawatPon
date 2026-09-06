@@ -43,5 +43,7 @@ history.
 
 ## Other Public Engineering Work
 
+- [android-harness](https://github.com/ChaithawatPon/android-harness) -
+  portable macOS command-line harness for a physical Android phone over USB debugging, featuring native UI hierarchy inspection and Apple Vision OCR.
 - [arm-robot-simulation](https://github.com/ChaithawatPon/arm-robot-simulation) -
   a vision-guided robot-arm simulation and control project.
